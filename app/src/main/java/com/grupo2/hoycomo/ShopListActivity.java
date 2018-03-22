@@ -21,6 +21,10 @@ public class ShopListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_list);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        Fragment s = new StoresFragment();
+        transaction.replace(R.id.frame, s);
+        transaction.commit();
         configureNavigationDrawer();
         configureToolbar();
     }
@@ -49,10 +53,12 @@ public class ShopListActivity extends AppCompatActivity {
                 Fragment f = null;
                 int itemId = menuItem.getItemId();
 
-                if (itemId == R.id.refresh) {
+                if (itemId == R.id.favorite) {
                     f = new FavoritesFragment();
-                } else if (itemId == R.id.stop) {
+                } else if (itemId == R.id.tracking) {
                     f = new TrackingFragment();
+                } else if (itemId == R.id.stores) {
+                    f = new StoresFragment();
                 }
 
                 if (f != null) {
