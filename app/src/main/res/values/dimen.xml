@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tool_bar_elevation">4dp</dimen>
+    <dimen name="text_dim_top">5dp</dimen>
+    <dimen name="btn_bar_height">24dp</dimen>
+    <dimen name="action_button_min_width">56dp</dimen>
+    <dimen name="indeterminate_progress_size">32dp</dimen>
+    <dimen name="action_bar_height">56dp</dimen>
+    <dimen name="action_bar_padding">16dp</dimen>
+    <dimen name="action_bar_title_left_padding">72dp</dimen>
+    <dimen name="action_bar_title_bottom_padding">20dp</dimen>
+</resources>
