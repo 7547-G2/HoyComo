@@ -13,6 +13,7 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.Profile;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -57,8 +58,15 @@ public class MainActivity extends AppCompatActivity {
                             // App code
                         }
                     });
-
-            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
+            if (!loggedIn){
+                LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
+                AccessToken token = AccessToken.getCurrentAccessToken();
+                System.out.println("access only Token is : " + String.valueOf(token.getToken()));
+                System.out.println("user id Token is : " + String.valueOf(token.getUserId()));
+                Profile profile = Profile.getCurrentProfile();
+                System.out.println("nombre es : " + profile.getFirstName() + ", " + profile.getLastName());
+                System.out.println("id es : " + profile.getId());
+            }
         }
     }
 

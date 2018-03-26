@@ -1,17 +1,18 @@
 package com.grupo2.hoycomo;
 
+import android.content.DialogInterface;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.RelativeLayout;
 
 public class ShopListActivity extends AppCompatActivity {
 
@@ -59,6 +60,8 @@ public class ShopListActivity extends AppCompatActivity {
                     f = new TrackingFragment();
                 } else if (itemId == R.id.stores) {
                     f = new StoresFragment();
+                } else if (itemId == R.id.account) {
+                    f = new AccountFragment();
                 }
 
                 if (f != null) {
@@ -88,6 +91,24 @@ public class ShopListActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Salir")
+                .setMessage("Desea cerrar la aplicación ?")
+                .setPositiveButton("Si", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 }
 
